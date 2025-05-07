@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - NavRasa IT Solutions</title>
+    <link rel="stylesheet" href="css/Styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="js/script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+    /* Modern redesign for Our Process section on service page only */
+    .service-process {
+      background: var(--dark);
+      position: relative;
+      padding: 90px 0 70px 0;
+      border-radius: 0 0 32px 32px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    .service-process::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: linear-gradient(120deg, #7f5af0 0%, #2cb5e8 100%);
+      opacity: 0.1;
+      pointer-events: none;
+    }
+    .service-process::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      /* Removed background image reference to abstract-bg.svg */
+      /* background: url('images/abstract-bg.svg') center/cover no-repeat; */
+      opacity: 0.05;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .service-process > * { position: relative; z-index: 2; }
+    .service-process h2 {
+      color: var(--white);
+      text-align: center;
+      font-size: 2.4rem;
+      margin-bottom: 48px;
+      letter-spacing: 1px;
+      position: relative;
+      z-index: 2;
+    }
+    .service-process h2:after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 4px;
+      background: #f59e0b;
+      margin: 18px auto 0;
+      border-radius: 2px;
+    }
+    .process-timeline {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .process-timeline::before {
+      content: '';
+      position: absolute;
+      top: 50px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to right, #7f5af0, #2cb5e8);
+      opacity: 0.2;
+    }
+    .process-step {
+      position: relative;
+      flex: 1;
+      min-width: 200px;
+    }
+    .step-content {
+      background: var(--darker);
+      border-radius: 20px;
+      padding: 25px 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+      border: 1px solid rgba(127,90,240,0.1);
+    }
+    .step-content:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+      border-color: #f59e0b;
+    }
+    .step-number {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #7f5af0, #2cb5e8);
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(127,90,240,0.2);
+    }
+    .step-icon {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+    .step-content h3 {
+      color: var(--white);
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .step-content p {
+      color: var(--gray-light);
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin: 0;
+    }
+    @media (max-width: 1024px) {
+      .process-timeline {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .process-step {
+        flex: 0 0 calc(50% - 20px);
+        margin-bottom: 40px;
+      }
+      .process-timeline::before {
+        display: none;
+      }
+    }
+    @media (max-width: 768px) {
+      .service-process {
+        padding: 60px 0 40px 0;
+      }
+      .service-process h2 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+      }
+      .process-step {
+        flex: 0 0 100%;
+        margin-bottom: 30px;
+      }
+      .step-content {
+        padding: 20px;
+      }
+      .step-number {
+        font-size: 1rem;
+        padding: 6px 12px;
+      }
+      .step-icon {
+        font-size: 1.8rem;
+      }
+      .step-content h3 {
+        font-size: 1.1rem;
+      }
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <span class="logo-img" style="background-image:url('images/navrasa_logo.png');"></span>
+                <div>
+                  <h1>NavRasa</h1>
+                  <p>IT SOLUTIONS</p>
+                </div>
+            </div>
+            <nav id="navbar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li class="dropdown">
+                        <a href="service.html" class="active">Services</a>
+                        <div class="dropdown-content">
+                            <a href="service.html#digital-transformation">Digital Transformation</a>
+                            <a href="service.html#digital-commerce">Digital Commerce</a>
+                            <a href="service.html#product-engineering">Product Engineering</a>
+                            <a href="service.html#ai-ml">AI & ML Solutions</a>
+                        </div>
+                    </li>
+                    <li><a href="contact.html" class="contact-btn">Contact Us</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h2>Our Core Services</h2>
+                <p>Explore our comprehensive range of specialized services designed to support your business growth and digital transformation journey.</p>
+            </div>
+        </section>
+
+        <section class="core-offerings">
+            <div class="offerings-wrapper">
+                <div class="offerings-image">
+                    <img src="images/Screenshot 2025-05-07 095818.png" alt="Developer working on laptop" style="width:100%;max-width:400px;border-radius:18px;">
+                </div>
+                <div class="offerings-content">
+                    <h2>Our Core Offerings</h2>
+                    <div class="service-card">
+                        <i class="fas fa-laptop-code service-icon"></i>
+                        <h3>Web Development</h3>
+                        <p>Custom websites and web applications built with modern technologies.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-mobile-alt service-icon"></i>
+                        <h3>Mobile Development</h3>
+                        <p>Native and cross-platform mobile applications for iOS and Android.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-shopping-cart service-icon"></i>
+                        <h3>E-commerce Solutions</h3>
+                        <p>Online stores and shopping platforms with secure payment integration.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-cloud service-icon"></i>
+                        <h3>Cloud Services</h3>
+                        <p>Cloud infrastructure setup, migration, and management services.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-shield-alt service-icon"></i>
+                        <h3>Cybersecurity</h3>
+                        <p>Security solutions to protect your digital assets and data.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-chart-line service-icon"></i>
+                        <h3>Digital Marketing</h3>
+                        <p>Comprehensive digital marketing strategies to grow your business.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="technologies-section">
+          <div class="container">
+            <h2 class="tech-heading">Technologies we work with</h2>
+            <div class="tech-tabs">
+              <button class="tech-tab active" data-tab="ecommerce">eCommerce</button>
+              <button class="tech-tab" data-tab="web">Web</button>
+              <button class="tech-tab" data-tab="mobile">Mobile</button>
+              <button class="tech-tab" data-tab="erp">ERP & CRM</button>
+              <button class="tech-tab" data-tab="cloud">Cloud</button>
+              <button class="tech-tab" data-tab="database">Database</button>
+            </div>
+            <div class="tech-grid" id="tech-ecommerce">
+              <div class="tech-card"><span class="tech-icon">🅼</span><div>Magento</div></div>
+              <div class="tech-card"><span class="tech-icon">☁️</span><div>Adobe Cloud</div></div>
+              <div class="tech-card"><span class="tech-icon">🛒</span><div>WooCommerce</div></div>
+              <div class="tech-card"><span class="tech-icon">🛍️</span><div>Shopify</div></div>
+              <div class="tech-card"><span class="tech-icon">🅱️</span><div>BigCommerce</div></div>
+              <div class="tech-card"><span class="tech-icon"><i class="fas fa-shopping-cart"></i></span><div>Opencart</div></div>
+              <div class="tech-card"><span class="tech-icon">🌐</span><div>Marketplace</div></div>
+              <div class="tech-card"><span class="tech-icon">🏬</span><div>E-commerce</div></div>
+              <div class="tech-card"><span class="tech-icon">🚚</span><div>Dropshipping</div></div>
+              <div class="tech-card"><span class="tech-icon">⚙️</span><div>Odoo</div></div>
+            </div>
+            <div class="tech-grid" id="tech-web" style="display:none;">
+              <div class="tech-card"><span class="tech-icon"><i class="fab fa-html5"></i></span><div>HTML5</div></div>
+              <div class="tech-card"><span class="tech-icon"><i class="fab fa-css3-alt"></i></span><div>CSS3</div></div>
+              <div class="tech-card"><span class="tech-icon"><i class="fab fa-js"></i></span><div>JavaScript</div></div>
+              <div class="tech-card"><span class="tech-icon"><i class="fab fa-react"></i></span><div>React</div></div>
+              <div class="tech-card"><span class="tech-icon"><i class="fab fa-angular"></i></span><div>Angular</div></div>
+              <div class="tech-card"><span class="tech-icon"><i class="fab fa-vuejs"></i></span><div>Vue.js</div></div>
+              <div class="tech-card"><span class="tech-icon"><i class="fab fa-node-js"></i></span><div>Node.js</div></div>
+              <div class="tech-card"><span class="tech-icon"><i class="fab fa-php"></i></span><div>PHP</div></div>
+              <div class="tech-card"><span class="tech-icon"><i class="fab fa-wordpress"></i></span><div>WordPress</div></div>
+              <div class="tech-card"><span class="tech-icon"><i class="fab fa-bootstrap"></i></span><div>Bootstrap</div></div>
+            </div>
+            <div class="tech-grid" id="tech-mobile" style="display:none;">
+              <div class="tech-card"><span class="tech-icon"><i class="fab fa-android"></i></span><div>Android</div></div>
+              <div class="tech-card"><span class="tech-icon"><i class="fab fa-apple"></i></span><div>iOS</div></div>
+              <div class="tech-card"><span class="tech-icon">⚛️</span><div>React Native</div></div>
+              <div class="tech-card"><span class="tech-icon">🟦</span><div>Flutter</div></div>
+              <div class="tech-card"><span class="tech-icon">🅳</span><div>Dart</div></div>
+              <div class="tech-card"><span class="tech-icon">🅺</span><div>Kotlin</div></div>
+              <div class="tech-card"><span class="tech-icon">🅢</span><div>Swift</div></div>
+              <div class="tech-card"><span class="tech-icon">🅲</span><div>Objective-C</div></div>
+              <div class="tech-card"><span class="tech-icon">🅲#</span><div>Xamarin</div></div>
+              <div class="tech-card"><span class="tech-icon">🅲+</span><div>C++</div></div>
+            </div>
+            <div class="tech-grid" id="tech-erp" style="display:none;">
+              <div class="tech-card"><span class="tech-icon">⚙️</span><div>Odoo</div></div>
+              <div class="tech-card"><span class="tech-icon">🅢</span><div>SAP</div></div>
+              <div class="tech-card"><span class="tech-icon">🅳</span><div>Dynamics 365</div></div>
+              <div class="tech-card"><span class="tech-icon">🅲</span><div>CRM</div></div>
+              <div class="tech-card"><span class="tech-icon">🅾️</span><div>Oracle</div></div>
+              <div class="tech-card"><span class="tech-icon">🅩</span><div>Zoho</div></div>
+              <div class="tech-card"><span class="tech-icon">🅢</span><div>Salesforce</div></div>
+              <div class="tech-card"><span class="tech-icon">🅶</span><div>Google Workspace</div></div>
+              <div class="tech-card"><span class="tech-icon">🅼</span><div>Microsoft 365</div></div>
+              <div class="tech-card"><span class="tech-icon">🅲</span><div>Custom ERP</div></div>
+            </div>
+            <div class="tech-grid" id="tech-cloud" style="display:none;">
+              <div class="tech-card"><span class="tech-icon"><i class="fab fa-aws"></i></span><div>AWS</div></div>
+              <div class="tech-card"><span class="tech-icon"><i class="fab fa-google"></i></span><div>Google Cloud</div></div>
+              <div class="tech-card"><span class="tech-icon"><i class="fab fa-microsoft"></i></span><div>Azure</div></div>
+              <div class="tech-card"><span class="tech-icon">☁️</span><div>IBM Cloud</div></div>
+              <div class="tech-card"><span class="tech-icon">☁️</span><div>Oracle Cloud</div></div>
+              <div class="tech-card"><span class="tech-icon">☁️</span><div>DigitalOcean</div></div>
+              <div class="tech-card"><span class="tech-icon">☁️</span><div>Heroku</div></div>
+              <div class="tech-card"><span class="tech-icon">☁️</span><div>Alibaba Cloud</div></div>
+              <div class="tech-card"><span class="tech-icon">☁️</span><div>Linode</div></div>
+              <div class="tech-card"><span class="tech-icon">☁️</span><div>Vultr</div></div>
+            </div>
+            <div class="tech-grid" id="tech-database" style="display:none;">
+              <div class="tech-card"><span class="tech-icon"><i class="fas fa-database"></i></span><div>MySQL</div></div>
+              <div class="tech-card"><span class="tech-icon"><i class="fas fa-database"></i></span><div>PostgreSQL</div></div>
+              <div class="tech-card"><span class="tech-icon"><i class="fas fa-database"></i></span><div>MongoDB</div></div>
+              <div class="tech-card"><span class="tech-icon"><i class="fas fa-database"></i></span><div>SQLite</div></div>
+              <div class="tech-card"><span class="tech-icon"><i class="fas fa-database"></i></span><div>Redis</div></div>
+              <div class="tech-card"><span class="tech-icon"><i class="fas fa-database"></i></span><div>Oracle DB</div></div>
+              <div class="tech-card"><span class="tech-icon"><i class="fas fa-database"></i></span><div>MS SQL</div></div>
+              <div class="tech-card"><span class="tech-icon"><i class="fas fa-database"></i></span><div>Firebase</div></div>
+              <div class="tech-card"><span class="tech-icon"><i class="fas fa-database"></i></span><div>DynamoDB</div></div>
+              <div class="tech-card"><span class="tech-icon"><i class="fas fa-database"></i></span><div>Cassandra</div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="service-process">
+          <div class="container">
+            <h2>Our Process</h2>
+            <div class="process-timeline">
+              <div class="process-step">
+                <div class="step-content">
+                  <div class="step-number">01</div>
+                  <div class="step-icon">🔍</div>
+                  <h3>Discovery</h3>
+                  <p>Understanding your business needs and goals through in-depth consultation</p>
+                </div>
+              </div>
+              <div class="process-step">
+                <div class="step-content">
+                  <div class="step-number">02</div>
+                  <div class="step-icon">📝</div>
+                  <h3>Planning</h3>
+                  <p>Creating a detailed roadmap and strategy tailored to your requirements</p>
+                </div>
+              </div>
+              <div class="process-step">
+                <div class="step-content">
+                  <div class="step-number">03</div>
+                  <div class="step-icon">💻</div>
+                  <h3>Development</h3>
+                  <p>Building your solution with cutting-edge technologies and best practices</p>
+                </div>
+              </div>
+              <div class="process-step">
+                <div class="step-content">
+                  <div class="step-number">04</div>
+                  <div class="step-icon">🧪</div>
+                  <h3>Testing</h3>
+                  <p>Rigorous quality assurance and performance testing to ensure excellence</p>
+                </div>
+              </div>
+              <div class="process-step">
+                <div class="step-content">
+                  <div class="step-number">05</div>
+                  <div class="step-icon">🚀</div>
+                  <h3>Deployment</h3>
+                  <p>Smooth launch and ongoing support to ensure your success</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!--section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to Transform Your Business?</h2>
+                    <p>Let's discuss how our services can help you achieve your goals. Contact us today for a free consultation.</p>
+                    <a href="contact.html" class="cta-btn">Get Started</a>
+                </div>
+            </div>
+        </section-->
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="service.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="service.html#software">Software Development</a></li>
+                        <li><a href="service.html#web">Web Development</a></li>
+                        <li><a href="service.html#mobile">Mobile App Development</a></li>
+                        <li><a href="service.html#cloud">Cloud Solutions</a></li>
+                        <li><a href="service.html#ui">UI/UX Design</a></li>
+                        <li><a href="service.html#consulting">IT Consulting</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="case-studies.html">Case Studies</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="news.html">News & Events</a></li>
+                        <li><a href="downloads.html">Downloads</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Use</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Info</h4>
+                    <p>Shyam Nagar, Jaipur, Rajasthan, India</p>
+                    <p><a href="mailto:info@navrasaitsolutions.com">info@navrasaitsolutions.com</a></p>
+                    <p><a href="tel:+916377067867">+91 6377067867</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 NavRasa IT Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top">↑</a>
+    <div class="custom-cursor"></div>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const tabs = document.querySelectorAll('.tech-tab');
+      const grids = document.querySelectorAll('.tech-grid');
+
+      function showGrid(tab) {
+        tabs.forEach(t => t.classList.remove('active'));
+        grids.forEach(g => g.style.display = 'none');
+        tab.classList.add('active');
+        const gridId = 'tech-' + tab.getAttribute('data-tab');
+        const grid = document.getElementById(gridId);
+        if (grid) grid.style.display = '';
+      }
+
+      showGrid(tabs[0]);
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          showGrid(tab);
+        });
+      });
+    });
+    </script>
+</body>
+</html>
