@@ -1,0 +1,23 @@
+{
+  "name": "navrasa-frontend",
+  "version": "1.0.0",
+  "description": "NavRasa IT Solutions Frontend",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server --port=3000 --open=index.html",
+    "build": "npm run minify-css && npm run minify-js",
+    "minify-css": "postcss css/Styles.css -o css/styles.min.css",
+    "minify-js": "terser js/script.js -o js/script.min.js"
+  },
+  "dependencies": {
+    "live-server": "^1.2.2"
+  },
+  "devDependencies": {
+    "postcss": "^8.4.31",
+    "cssnano": "^6.0.1",
+    "terser": "^5.24.0"
+  },
+  "author": "NavRasa IT Solutions",
+  "license": "UNLICENSED",
+  "private": true
+} 
